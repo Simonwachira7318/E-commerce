@@ -37,7 +37,7 @@ import { notFound } from './middleware/notFound.js';
 dotenv.config();
 
 const app = express();
-app.set('trust proxy', 1); // still needed for IP-based rate limiting or similar
+app.set('trust proxy', 1); 
 
 // Security middleware
 app.use(helmet());
@@ -62,7 +62,7 @@ app.use(
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: [
       'Content-Type', 
-      'Authorization',  // Only need this for JWT
+      'Authorization',
       'X-Requested-With',
       'Accept'
     ],
