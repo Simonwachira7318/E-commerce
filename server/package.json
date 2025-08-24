@@ -1,0 +1,64 @@
+{
+  "name": "e-shop-server",
+  "version": "1.0.0",
+  "description": "Backend server for E-Shop MERN application",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "seed": "node scripts/seedDatabase.js",
+    "seed:dev": "NODE_ENV=development node scripts/seedDatabase.js",
+    "seed:prod": "NODE_ENV=production node scripts/seedDatabase.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "clean": "rm -rf node_modules && npm install",
+    "logs": "tail -f logs/app.log",
+    "db:backup": "mongodump --uri $MONGODB_URI --out ./backups/$(date +%Y%m%d_%H%M%S)",
+    "db:restore": "mongorestore --uri $MONGODB_URI --dir ./backups"
+  },
+  "keywords": [
+    "ecommerce",
+    "mern",
+    "express",
+    "mongodb",
+    "nodejs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.41.3",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "hpp": "^0.2.3",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^6.9.7",
+    "pdfkit": "^0.17.1",
+    "stripe": "^14.0.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
